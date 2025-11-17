@@ -1,0 +1,26 @@
+services:
+  de-pg-cr-af:
+    platform: linux/amd64
+    image: cr.yandex/crp1r8pht0n0gl25aug1/de-pg-cr-af:latest
+    ports:
+      - 3000:3000
+      - 3002:3002
+      - 15432:5432
+    volumes:
+      - s5t4postgresql:/var/lib/postgresql
+      - ${AIRFLOW_DAGS_DIR:-./dags}:/lessons/dags
+    environment:
+      PYTHONPATH: ${PYTHONPATH}
+      AIRFLOW_VAR_CDM_DDL_FILES_PATH: "/lessons/dags/cdm/ddl"
+      AIRFLOW_VAR_DDS_DDL_FILES_PATH: "/lessons/dags/dds/ddl"
+      AIRFLOW_VAR_STG_DDL_FILES_PATH: "/lessons/dags/stg/ddl"
+    restart: unless-stopped
+
+  metabase:
+    image: metabase/metabase
+    ports:
+      - 3333:3000
+    restart: unless-stopped
+
+volumes:
+  s5t4postgresql:

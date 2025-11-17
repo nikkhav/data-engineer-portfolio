@@ -1,0 +1,17 @@
+services:
+  de-pg-cr-af:
+    platform: linux/amd64
+    image: cr.yandex/crp1r8pht0n0gl25aug1/de-pg-cr-af:latest
+    ports:
+      - 3000:3000
+      - 3002:3002
+      - 15432:5432
+    volumes:
+      - s6postgresql:/var/lib/postgresql
+      - ./src/dags:/lessons/dags
+    environment:
+      PYTHONPATH: ${PYTHONPATH}
+    restart: unless-stopped
+
+volumes:
+  s6postgresql:

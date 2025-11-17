@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/airflow_dwh/src/dags/cdm/ddl/001-schema-create.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/airflow_dwh/src/dags/cdm/ddl/002-srv_wf_settings-create.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/airflow_dwh/src/dags/cdm/ddl/003-dm_settlement_report-create.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/airflow_dwh/src/dags/cdm/ddl/004-dm_courier_ledger-create.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/airflow_dwh/src/dags/dds/ddl/001-schema-create.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/airflow_dwh/src/dags/dds/ddl/002-srv_wf_settings-create.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/airflow_dwh/src/dags/dds/ddl/003-dm_users-create.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/airflow_dwh/src/dags/dds/ddl/004-dm_restaurants-create.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/airflow_dwh/src/dags/dds/ddl/005-dm_products-create.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/airflow_dwh/src/dags/dds/ddl/006-dm_timestamps-create.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/airflow_dwh/src/dags/dds/ddl/007-dm_orders-create.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/airflow_dwh/src/dags/dds/ddl/008-dm_couriers-create.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/airflow_dwh/src/dags/dds/ddl/009-fct_product_sales-create.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/airflow_dwh/src/dags/dds/ddl/010-fct_deliveries-create.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/airflow_dwh/src/dags/stg/ddl/001-schema-create.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/airflow_dwh/src/dags/stg/ddl/002-srv_wf_settings-create.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/airflow_dwh/src/dags/stg/ddl/003-bonussystem_users-create.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/airflow_dwh/src/dags/stg/ddl/004-bonussystem_ranks-create.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/airflow_dwh/src/dags/stg/ddl/005-bonussystem_events-create.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/airflow_dwh/src/dags/stg/ddl/006-bonussystem_events-index-create.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/airflow_dwh/src/dags/stg/ddl/007-ordersystem_orders-create.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/airflow_dwh/src/dags/stg/ddl/008-ordersystem_restaurants-create.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/airflow_dwh/src/dags/stg/ddl/009-ordersystem_users-create.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/airflow_dwh/src/dags/stg/ddl/010-deliverysystem_couriers-create.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/airflow_dwh/src/dags/stg/ddl/011-deliverysystem_deliveries-create.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/kafka-spark/src/scripts/create_subscribers_feedback.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/vertica/src/sql/dwh-group_conversions-select.sql" dialect="Vertica" />
+    <file url="file://$PROJECT_DIR$/vertica/src/sql/dwh-l_user_group_activity-create.sql" dialect="Vertica" />
+    <file url="file://$PROJECT_DIR$/vertica/src/sql/dwh-l_user_group_activity-insert.sql" dialect="Vertica" />
+    <file url="file://$PROJECT_DIR$/vertica/src/sql/dwh-s_auth_history-create.sql" dialect="Vertica" />
+    <file url="file://$PROJECT_DIR$/vertica/src/sql/dwh-s_auth_history-insert.sql" dialect="Vertica" />
+    <file url="file://$PROJECT_DIR$/vertica/src/sql/dwh-user_group_log-select.sql" dialect="Vertica" />
+    <file url="file://$PROJECT_DIR$/vertica/src/sql/dwh-user_group_messages-select.sql" dialect="Vertica" />
+    <file url="file://$PROJECT_DIR$/vertica/src/sql/staging-group_log-create.sql" dialect="Vertica" />
+  </component>
+</project>

@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS cdm.srv_wf_settings (
+    id INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    workflow_key VARCHAR NOT NULL UNIQUE,
+    workflow_settings JSON NOT NULL
+);
