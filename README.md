@@ -1,4 +1,4 @@
-# README
+# Nikita Khavkin - Data Engineering Portfolio
 
 This repository contains a collection of my practical projects focused on modern data engineering and analytics technologies.  
 Here you will find implementations and experiments involving Data Warehousing (DWH), Apache Airflow, Apache Spark, Apache Kafka, Vertica, and other tools used for building scalable, reliable, and production-grade data pipelines.
