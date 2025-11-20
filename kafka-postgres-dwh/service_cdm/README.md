@@ -1,0 +1,1 @@
+Ссылка на registry: ```cr.yandex/crplcb4qsq0nvnupp5ur/cdm_service```
