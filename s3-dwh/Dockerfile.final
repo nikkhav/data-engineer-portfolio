@@ -1,0 +1,6 @@
+FROM cr.yandex/crp1r8pht0n0gl25aug1/de-final-prj:latest
+
+COPY requirements.txt /requirements.txt
+RUN pip install --no-cache-dir -r /requirements.txt
+
+COPY ./src/dags /lessons/dags

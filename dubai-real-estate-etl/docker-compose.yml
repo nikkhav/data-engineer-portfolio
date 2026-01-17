@@ -1,0 +1,92 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: postgres
+    environment:
+      POSTGRES_USER: jovyan
+      POSTGRES_PASSWORD: jovyan
+      POSTGRES_DB: dwh
+    ports:
+      - "15432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres-init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U jovyan"]
+      interval: 5s
+      retries: 5
+
+  airflow-db:
+    image: postgres:16
+    container_name: airflow-db
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    ports:
+      - "15433:5432"
+    volumes:
+      - airflow_db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U airflow"]
+      interval: 5s
+      retries: 5
+
+  airflow:
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+    container_name: airflow
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow-db:5432/airflow
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_ALL_ADMINS: "True"
+
+      AIRFLOW_VAR_STG_DDL_FILES_PATH: "/opt/airflow/dags/stg/ddl"
+
+      AIRFLOW_CONN_PG_DWH_CONNECTION: postgresql+psycopg2://jovyan:jovyan@postgres:5432/dwh
+
+      DBT_PROFILES_DIR: /opt/airflow/dbt
+
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
+      - ./dbt:/opt/airflow/dbt
+    ports:
+      - "8080:8080"
+    depends_on:
+      airflow-db:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    command: >
+      bash -c "
+      airflow db migrate &&
+      airflow api-server &
+      airflow dag-processor &
+      airflow scheduler
+      "
+
+  metabase:
+    image: metabase/metabase:latest
+    container_name: metabase
+    ports:
+      - "3000:3000"
+    environment:
+      MB_DB_TYPE: postgres
+      MB_DB_DBNAME: dwh
+      MB_DB_PORT: 5432
+      MB_DB_USER: jovyan
+      MB_DB_PASS: jovyan
+      MB_DB_HOST: postgres
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
+  airflow_db_data:
+  logs:
+  plugins:

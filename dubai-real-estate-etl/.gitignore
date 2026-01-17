@@ -1,0 +1,19 @@
+.idea
+.env
+
+# dbt build artifacts
+target/
+dbt_modules/
+dbt_packages/
+.user.yml
+
+# local configs
+profiles.yml
+
+# system
+*.pyc
+__pycache__/
+.DS_Store
+
+# logs
+logs/

@@ -1,0 +1,20 @@
+name: 'dwh'
+version: '1.0.0'
+config-version: 2
+
+profile: 'dwh'
+
+models:
+  dwh:
+    stg:
+      +schema: stg
+      +materialized: view
+    dds:
+      +schema: dds
+      +materialized: table
+    cdm:
+      +schema: cdm
+      +materialized: table
+    bi:
+      +schema: bi
+      +materialized: view

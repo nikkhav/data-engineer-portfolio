@@ -1,0 +1,9 @@
+[project]
+name = "rag-s3-knowledge-hub"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.9"
+dependencies = [
+    "ipykernel>=6.31.0",
+    "requests>=2.32.5",
+]

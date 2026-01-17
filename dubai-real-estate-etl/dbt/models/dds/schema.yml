@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: hub_deals
+    columns:
+      - name: deal_hk
+        tests:
+          - not_null
+          - unique
+
+  - name: sat_deals
+    columns:
+      - name: deal_hk
+        tests:
+          - not_null

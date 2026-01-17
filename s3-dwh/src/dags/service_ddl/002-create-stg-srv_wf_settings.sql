@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS stg.srv_wf_settings (
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    workflow_key VARCHAR NOT NULL UNIQUE,
+    workflow_settings JSONB NOT NULL,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
